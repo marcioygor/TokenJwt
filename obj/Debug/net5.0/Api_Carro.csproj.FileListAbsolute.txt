@@ -5,7 +5,6 @@ C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Api_
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Api_Carro.runtimeconfig.json
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Api_Carro.runtimeconfig.dev.json
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Api_Carro.dll
-C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\ref\Api_Carro.dll
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Api_Carro.pdb
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -28,10 +27,18 @@ C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\staticwebassets\Api_Carro.StaticWebAssets.Manifest.cache
-C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\staticwebassets\Api_Carro.StaticWebAssets.xml
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\scopedcss\bundle\Api_Carro.styles.css
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.RazorTargetAssemblyInfo.cache
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.dll
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\ref\Api_Carro.dll
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.pdb
 C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.genruntimeconfig.cache
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\Api_Carro.csproj.CopyComplete
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\obj\Debug\net5.0\refint\Api_Carro.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\Api_Carro\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

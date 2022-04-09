@@ -31,7 +31,7 @@ namespace Api_Carro.Controllers
         [Route("")]
         public async Task<ActionResult> GetCarros()
         {
-            var carros = await _context.Carros.ToListAsync();
+            var carros = await _context.Carros.ToListAsync(); //Listando todos os carros
             return Ok(carros);
         }
 
@@ -45,7 +45,7 @@ namespace Api_Carro.Controllers
             if (ModelState.IsValid)
             {
                 context.Carros.Add(model);
-                await context.SaveChangesAsync();
+                await context.SaveChangesAsync();     //Criando um carro
                 return model;
             }
 
@@ -55,13 +55,13 @@ namespace Api_Carro.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("{id:int}")]
         public async Task<ActionResult<Carro>> RemoveById([FromServices] DataContext context, int id)
         {
             try
             {
-                context.Carros.Remove(context.Carros.Find(id));
+                context.Carros.Remove(context.Carros.Find(id)); //dado um id, remove um carro
                 context.SaveChanges();
                 return Ok("Carro apagado.");
 
