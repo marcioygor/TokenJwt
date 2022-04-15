@@ -13,6 +13,7 @@ namespace Api_Carro.Data
 
         public DbSet<Carro> Carros { get; set; }
         public DbSet<Marca> Marcas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
     }
 }

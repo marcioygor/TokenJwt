@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Api_Carro.Models;
 using Api_Carro.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api_Carro.Controllers
 {
@@ -29,6 +30,7 @@ namespace Api_Carro.Controllers
 
         [HttpGet]
         [Route("")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetMarcas()
         {
             var marcas = await _context.Marcas.ToListAsync();
@@ -37,6 +39,7 @@ namespace Api_Carro.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize]
         public async Task<ActionResult<Marca>> Post(
               [FromServices] DataContext context,
               [FromBody] Marca model
@@ -55,8 +58,9 @@ namespace Api_Carro.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("{id:int}")]
+        [Authorize(Roles="ADM")] //Apenas Administradores podem fazer remoção.
         public async Task<ActionResult<Carro>> RemoveById([FromServices] DataContext context, int id)
         {
             try
@@ -64,7 +68,6 @@ namespace Api_Carro.Controllers
                 context.Marcas.Remove(context.Marcas.Find(id));
                 context.SaveChanges();
                 return Ok("Marca apagada.");
-
             }
             catch
             {

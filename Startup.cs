@@ -15,6 +15,10 @@ using Microsoft.EntityFrameworkCore;
 using Api_Carro.Models;
 using Api_Carro.Data;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Api_Carro
 {
@@ -36,6 +40,25 @@ namespace Api_Carro
 
 
             services.AddControllers();
+            
+            //configuração do jwt para uso de autentificação
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddAuthentication(x =>{	
+             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+             x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})        
+         .AddJwtBearer(x =>
+       {
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
 
             services.AddSwaggerGen(c =>
             {

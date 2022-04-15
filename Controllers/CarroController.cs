@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Api_Carro.Models;
 using Api_Carro.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api_Carro.Controllers
 {
@@ -29,6 +30,7 @@ namespace Api_Carro.Controllers
 
         [HttpGet]
         [Route("")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetCarros()
         {
             var carros = await _context.Carros.ToListAsync(); //Listando todos os carros
@@ -37,6 +39,7 @@ namespace Api_Carro.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize]
         public async Task<ActionResult<Carro>> Post(
               [FromServices] DataContext context,
               [FromBody] Carro model
@@ -57,6 +60,7 @@ namespace Api_Carro.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
+        [Authorize(Roles="ADM")] 
         public async Task<ActionResult<Carro>> RemoveById([FromServices] DataContext context, int id)
         {
             try
@@ -64,7 +68,6 @@ namespace Api_Carro.Controllers
                 context.Carros.Remove(context.Carros.Find(id)); //dado um id, remove um carro
                 context.SaveChanges();
                 return Ok("Carro apagado.");
-
             }
             catch
             {
