@@ -42,7 +42,8 @@ namespace Api_Carro
             services.AddControllers();
             
             //configuração do jwt para uso de autentificação
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
+            var key = Encoding.ASCII.GetBytes(Settings.Secret); 
             services.AddAuthentication(x =>{	
              x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
              x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

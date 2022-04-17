@@ -8,7 +8,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api_Carro.Models
 {
-
     public class Usuario
     {
         [Key]

@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Net;
 using System.Resources;
@@ -13,6 +14,16 @@ using Microsoft.EntityFrameworkCore;
 using Api_Carro.Models;
 using Api_Carro.Data;
 using Api_Carro.Services;
+using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace Api_Carro.Controllers
 {
@@ -66,9 +77,13 @@ namespace Api_Carro.Controllers
 
             var token=TokenService.GenerateToken(usuario);
 
+            var refreshToken=TokenService.GenerateRefreshToken();
+            TokenService.SaveRefreshToken(usuario.UserName, refreshToken);
+
              return new{
                  usuario=usuario,
-                 token=token
+                 token=token,
+                 refreshToken=refreshToken
              };
         }
 
@@ -77,6 +92,29 @@ namespace Api_Carro.Controllers
              return NotFound("Usuário não Informado.");
         }      
     }
+
+    [HttpPost]
+    [Route("refresh")]
+
+     public async Task<ActionResult <dynamic>> Refresh(string token, string refreshToken){
+         var principal=TokenService.GetPrincipalExpiredToken(token);
+         var UserName=principal.Identity.Name;
+         var savedRefreshToken=TokenService.GetRefreshToken(UserName);
+
+         if(savedRefreshToken!=refreshToken)
+            throw new SecurityTokenException("Token Invalido"); 
+         
+         var newJwtToken=TokenService.GenerateToken(principal.Claims);
+         var newRefreshToken=TokenService.GenerateRefreshToken();
+         TokenService.DeleteRefreshToken(UserName, refreshToken);
+         TokenService.SaveRefreshToken(UserName, newRefreshToken);
+
+           return new{
+                 token=newJwtToken,
+                 refreshToken=newRefreshToken
+             };
+     }
+        
 } 
 
 }
