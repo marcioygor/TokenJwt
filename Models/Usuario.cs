@@ -18,6 +18,9 @@ namespace Api_Carro.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public string Password { get; set; }
+      
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public string Role { get; set; }

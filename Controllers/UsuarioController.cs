@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Net;
@@ -23,7 +24,10 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api_Carro.Controllers
 {
@@ -47,7 +51,10 @@ namespace Api_Carro.Controllers
         )
         {
             if (ModelState.IsValid)
-            {
+            {  
+                UsuarioConfig user=new UsuarioConfig();
+
+                model.Password=user.CryptSenha(model.Password); //criptografando senha
                 context.Usuarios.Add(model);
                 await context.SaveChangesAsync(); 
                 model.Password="";
@@ -68,6 +75,8 @@ namespace Api_Carro.Controllers
               [FromBody] Usuario model)
         {
             var usuario=model;
+            UsuarioConfig user=new UsuarioConfig();
+            model.Password=user.CryptSenha(model.Password); //criptografando senha
 
             if(usuario!=null){
                usuario=context.Usuarios.FirstOrDefault(x => x.UserName == usuario.UserName && x.Password==usuario.Password);
@@ -79,6 +88,8 @@ namespace Api_Carro.Controllers
 
             var refreshToken=TokenService.GenerateRefreshToken();
             TokenService.SaveRefreshToken(usuario.UserName, refreshToken);
+
+            usuario.Password="";
 
              return new{
                  usuario=usuario,
@@ -114,6 +125,24 @@ namespace Api_Carro.Controllers
                  refreshToken=newRefreshToken
              };
      }
+
+        [HttpDelete]
+        [Route("delete/{id:int}")]
+        [Authorize(Roles="ADM")] 
+        public async Task<ActionResult<Carro>> RemoveUsuario([FromServices] DataContext context, int id)
+        {
+            try
+            {
+                context.Usuarios.Remove(context.Usuarios.Find(id)); 
+                context.SaveChanges();
+                return Ok("Usuário apagado.");
+            }
+            catch
+            {
+                return BadRequest("Usuário não encontrado");
+            }
+
+        }
         
 } 
 

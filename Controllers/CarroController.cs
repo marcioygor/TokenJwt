@@ -77,3 +77,5 @@ namespace Api_Carro.Controllers
         }
     }
 }
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkpvbiIsInJvbGUiOiJBRE0iLCJuYmYiOjE2NTEzMjc0MTIsImV4cCI6MTY1MTM1NjIxMiwiaWF0IjoxNjUxMzI3NDEyfQ.CBs3F1J5y7y8O4GD38fjQ6kHEgPUoRg0V3EUdnL66Ig
